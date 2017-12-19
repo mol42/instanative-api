@@ -1,0 +1,27 @@
+{
+  "name": "instanative-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://typhoon33@bitbucket.org/typhoon33/instanative-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/typhoon33/instanative-api#readme",
+  "dependencies": {
+    "busboy": "^0.2.14",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
+    "formidable": "^1.1.1",
+    "lokijs": "^1.5.1",
+    "multer": "^1.3.0",
+    "restify": "^6.3.4",
+    "upload-server": "^1.1.6",
+    "uuid": "^3.1.0"
+  }
+}
