@@ -6,6 +6,7 @@ class ProfileEndpoint {
 
         server.put('/profile', this.updateProfile.bind(this));
         server.get('/profile', this.getProfile.bind(this));
+        server.get('/statistics', this.getProfileStatistics.bind(this));
     }
 
     getProfile(req, res, next) {
@@ -23,6 +24,27 @@ class ProfileEndpoint {
             res.send({status : "fail", data : "SESSION_ERROR"});
         }
         next();
+    }
+
+    getProfileStatistics() {
+        var session = this.dbService.getSession(req.headers.authorization);
+
+        if (session) {
+            var user = this.dbService.findUserById(session.userId);
+
+            if (user) {
+                res.send({status : "ok", data : {
+                    likeCount : 100,
+                    followerCount : 278,
+                    followingCount : 20
+                }});
+            } else {
+                res.send({status : "fail", data : "USER_NOT_FOUND_ERROR"});
+            }
+        } else {
+            res.send({status : "fail", data : "SESSION_ERROR"});
+        }
+        next();       
     }
 
     updateProfile(req, res, next) {
