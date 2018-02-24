@@ -26,7 +26,7 @@ class ProfileEndpoint {
         next();
     }
 
-    getProfileStatistics() {
+    getProfileStatistics(req, res, next) {
         var session = this.dbService.getSession(req.headers.authorization);
 
         if (session) {
